@@ -42,6 +42,7 @@ import CssRules from '../../css_composer/model/CssRules';
 import { ComponentAdd, DragMode } from '../../dom_components/model/types';
 import ComponentWrapper from '../../dom_components/model/ComponentWrapper';
 import { CanvasSpotBuiltInTypes } from '../../canvas/model/CanvasSpot';
+import CommandPaletteManager from '../../command_palette_manager';
 
 Backbone.$ = $;
 
@@ -50,6 +51,7 @@ const deps: (new (em: EditorModel) => IModule)[] = [
   I18nModule,
   KeymapsModule,
   UndoManagerModule,
+  CommandPaletteManager,
   StorageManager,
   DeviceManager,
   ParserModule,
@@ -224,6 +226,10 @@ export default class EditorModel extends Model {
 
   get Styles(): StyleManager {
     return this.get('StyleManager');
+  }
+
+  get CommandPalette(): CommandPaletteManager {
+    return this.get('CommandPaletteManager');
   }
 
   constructor(conf: EditorConfig = {}) {

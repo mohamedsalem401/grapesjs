@@ -65,6 +65,11 @@ const config: KeymapsConfig = {
       handler: 'core:component-delete',
       opts: { prevent: true },
     },
+    'core:open-command-palette': {
+      keys: '⌘+k, ctrl+k',
+      handler: 'core:open-command-palette',
+      opts: { prevent: true },
+    },
   },
 };
 

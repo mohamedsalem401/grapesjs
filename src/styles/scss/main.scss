@@ -362,6 +362,7 @@ $colorsAll: (one, var(--gjs-primary-color)),
 }
 
 @import "gjs_style_manager";
+@import "gjs_command_palette";
 @import "gjs_blocks";
 @import "gjs_layers";
 @import "gjs_selectors";
