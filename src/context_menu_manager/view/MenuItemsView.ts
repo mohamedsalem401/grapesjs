@@ -2,9 +2,9 @@ import { View } from '../../common';
 import EditorModel from '../../editor/model/Editor';
 import { appendAtIndex } from '../../utils/dom';
 import MenuItemView from './MenuItemView';
-import { ContextMenuManagerConfig } from '../types';
 import MenuItem from '../model/MenuItem';
 import MenuItems from '../model/MenuItems';
+import { ContextMenuManagerConfig } from '../config/config';
 
 export default class MenuItemsView extends View {
   em: EditorModel;
