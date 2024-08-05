@@ -71,6 +71,7 @@ const commandsDef = [
   ['component-delete', 'ComponentDelete'],
   ['component-style-clear', 'ComponentStyleClear'],
   ['component-drag', 'ComponentDrag'],
+  ['show-toast', 'ShowToast'],
 ];
 
 const defComOptions = { preserveSelected: 1 };

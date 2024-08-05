@@ -42,10 +42,12 @@ import CssRules from '../../css_composer/model/CssRules';
 import { ComponentAdd, DragMode } from '../../dom_components/model/types';
 import ComponentWrapper from '../../dom_components/model/ComponentWrapper';
 import { CanvasSpotBuiltInTypes } from '../../canvas/model/CanvasSpot';
+import ToastManager from '../../toast_manager';
 
 Backbone.$ = $;
 
 const deps: (new (em: EditorModel) => IModule)[] = [
+  ToastManager,
   UtilsModule,
   I18nModule,
   KeymapsModule,
@@ -224,6 +226,10 @@ export default class EditorModel extends Model {
 
   get Styles(): StyleManager {
     return this.get('StyleManager');
+  }
+
+  get Toasts(): ToastManager {
+    return this.get('ToastManager');
   }
 
   constructor(conf: EditorConfig = {}) {

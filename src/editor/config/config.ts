@@ -24,6 +24,7 @@ import { HTMLGeneratorBuildOptions } from '../../code_manager/model/HtmlGenerato
 import { CssGeneratorBuildOptions } from '../../code_manager/model/CssGenerator';
 import { ObjectAny } from '../../common';
 import { ColorPickerOptions } from '../../utils/ColorPicker';
+import { ToastManagerConfig } from '../../toast_manager/config/config';
 
 export interface EditorConfig {
   /**
@@ -381,6 +382,11 @@ export interface EditorConfig {
    * Configurations for Style Manager.
    */
   styleManager?: StyleManagerConfig;
+
+  /**
+   * Configurations for Toasts Manager.
+   */
+  toastManager?: ToastManagerConfig;
 
   /**
    * Configurations for Block Manager.

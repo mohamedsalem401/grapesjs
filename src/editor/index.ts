@@ -84,6 +84,8 @@ import { CustomRTE } from '../rich_text_editor/config/config';
 import SelectorManager, { SelectorEvent } from '../selector_manager';
 import StorageManager, { StorageEvent, StorageOptions, ProjectData } from '../storage_manager';
 import StyleManager, { StyleManagerEvent } from '../style_manager';
+import ToastManager from '../toast_manager';
+import { ToastProperties } from '../toast_manager/model/Toast';
 import TraitManager from '../trait_manager';
 import UndoManagerModule from '../undo_manager';
 import UtilsModule from '../utils';
@@ -234,6 +236,9 @@ export default class Editor implements IBaseModule<EditorConfig> {
   }
   get StyleManager(): StyleManager {
     return this.em.Styles;
+  }
+  get ToastManager(): ToastManager {
+    return this.em.Toasts;
   }
   get Devices(): DeviceManager {
     return this.em.Devices;
@@ -584,6 +589,10 @@ export default class Editor implements IBaseModule<EditorConfig> {
 
   loadData(data: any) {
     return this.em.loadData(data);
+  }
+
+  showToast(options: ToastProperties) {
+    this.ToastManager.showToast(options);
   }
 
   /**
