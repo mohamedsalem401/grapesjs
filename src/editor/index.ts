@@ -62,6 +62,7 @@ import CanvasModule, { CanvasEvent } from '../canvas';
 import CodeManagerModule from '../code_manager';
 import CommandsModule, { CommandEvent } from '../commands';
 import { AddOptions, EventHandler, LiteralUnion } from '../common';
+import ContextMenuManager from '../context_menu_manager';
 import CssComposer from '../css_composer';
 import CssRule from '../css_composer/model/CssRule';
 import CssRules from '../css_composer/model/CssRules';
@@ -234,6 +235,9 @@ export default class Editor implements IBaseModule<EditorConfig> {
   }
   get StyleManager(): StyleManager {
     return this.em.Styles;
+  }
+  get ContextMenuManager(): ContextMenuManager {
+    return this.em.ContextMenu;
   }
   get Devices(): DeviceManager {
     return this.em.Devices;

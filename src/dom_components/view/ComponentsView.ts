@@ -7,6 +7,7 @@ import Component from '../model/Component';
 import ComponentView from './ComponentView';
 import FrameView from '../../canvas/view/FrameView';
 import Components from '../model/Components';
+import { EventsHash } from 'backbone';
 
 export default class ComponentsView extends View {
   opts!: any;

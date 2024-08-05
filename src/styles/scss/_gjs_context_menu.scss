@@ -1,0 +1,97 @@
+.context-menu {
+    position: absolute;
+    z-index: 10;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+}
+
+@keyframes ZoomIn {
+    0% {
+        opacity: .4;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ZoomOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: .4;
+        transform: scale(0.7);
+    }
+}
+
+.menu {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    background: white;
+    width: min-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    transform-origin: center center;
+    animation: ZoomIn 0.1s forwards;
+
+    &.closing {
+        animation: ZoomOut 0.1s forwards;
+    }
+
+    .menu-item {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: inherit;
+
+        &:hover {
+            background-color: #eee;
+            border-radius: inherit;
+
+            .menu {
+                display: block;
+            }
+        }
+
+        .menu-item-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 10px;
+
+            .text {
+                white-space: nowrap;
+            }
+
+            svg {
+                height: 12px;
+            }
+
+            .shortcut {
+                background-color: transparent;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+                border-radius: 4px;
+                color: #868682;
+                padding: 4px;
+                font-size: 10px;
+                align-self: center;
+                line-height: 1em;
+                font-family: "IBM Plex Mono", monospace;
+            }
+        }
+    }
+}

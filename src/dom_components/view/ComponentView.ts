@@ -84,6 +84,7 @@ TComp> {
     this.events = {
       ...(this.constructor as typeof ComponentView).getEvents(),
       dragstart: 'handleDragStart',
+      contextmenu: this.handleContextMenu,
     };
     this.delegateEvents();
     !modelOpt.temporary && this.init(this._clbObj());
@@ -167,6 +168,12 @@ TComp> {
       target: this.model,
       event,
     });
+  }
+
+  handleContextMenu(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.em.trigger('canvas:contextmenu', this, event);
   }
 
   initClasses() {
