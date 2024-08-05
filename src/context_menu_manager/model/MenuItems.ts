@@ -1,6 +1,6 @@
 import { Collection } from '../../common';
 import EditorModel from '../../editor/model/Editor';
-import MenuItem from './MenuItem';
+import MenuItem, { MenuItemProperties } from './MenuItem';
 
 type Position = {
   left: number;
@@ -12,7 +12,8 @@ export default class MenuItems extends Collection<MenuItem> {
   module!: any;
   position: Position | undefined;
 
-  initialize(prop: any, opts: { em?: EditorModel; module?: any; position?: Position } = {}) {
+  constructor(collection: MenuItemProperties[], opts: { em?: EditorModel; module?: any; position?: Position } = {}) {
+    super(collection);
     const { module, em, position } = opts;
     this.em = em!;
     this.module = module;

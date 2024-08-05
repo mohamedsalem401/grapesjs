@@ -1,5 +1,4 @@
 import { Model } from '../../common';
-import Component from '../../dom_components/model/Component';
 import EditorModel from '../../editor/model/Editor';
 
 export interface MenuItemProperties {
@@ -7,7 +6,7 @@ export interface MenuItemProperties {
   shortcut?: string;
   action?: (em: EditorModel) => void;
   condition?: (em: EditorModel) => boolean;
-  children?: MenuItem[];
+  children?: MenuItemProperties[];
 }
 
 export default class MenuItem extends Model<MenuItemProperties> {

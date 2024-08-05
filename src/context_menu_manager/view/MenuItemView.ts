@@ -2,9 +2,9 @@ import { View } from 'backbone';
 import _ from 'underscore';
 import MenuItemsView from './MenuItemsView';
 import MenuItem from '../model/MenuItem';
-import { ContextMenuManagerConfig } from '../types';
 import EditorModel from '../../editor/model/Editor';
 import MenuItems from '../model/MenuItems';
+import { ContextMenuManagerConfig } from '../config/config';
 
 export default class MenuItemView extends View<MenuItem> {
   em: EditorModel;
@@ -44,7 +44,10 @@ export default class MenuItemView extends View<MenuItem> {
     this.em = o.em;
     this.pfx = config.stylePrefix || '';
     this.listenTo(model, 'destroy remove', this.remove);
-    this.submenuItems = new MenuItems(this.model.get('children'));
+    const children = this.model.get('children');
+    if (!!children) {
+      this.submenuItems = new MenuItems(children);
+    }
   }
 
   render() {
